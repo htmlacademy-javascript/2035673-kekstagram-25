@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Алексей Абрамов](https://up.htmlacademy.ru/javascript/25/user/2035673).
-* Наставник: `Неизвестно`.
+* Наставник: [Максим Прусаков](https://htmlacademy.ru/profile/hikikomori).
 
 ---
 
