@@ -10,5 +10,5 @@ getRandomIntInclusive(13, 5);
 checkCommentLength(5, 13);
 
 function checkCommentLength(string, maxLength) {
-  return string.length <= maxLength
+  return string.length <= maxLength;
 }
