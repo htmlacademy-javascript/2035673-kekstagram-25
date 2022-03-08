@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-const names = [
+const NAMES = [
   'Алексей',
   'Евгения',
   'Татьяна',
@@ -12,9 +11,7 @@ const names = [
   'Михаил',
   'Денис'
 ];
-
-// eslint-disable-next-line no-unused-vars
-const message = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -22,6 +19,7 @@ const message = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
+let totalCommentsCount = 1;
 
 function getRandomIntInclusive(min, max) {
   if (min > max) {
@@ -32,45 +30,50 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-checkCommentLength(5, 13);
-
-function checkCommentLength(string, maxLength) {
-  return string.length <= maxLength;
-}
-
-// const photo = {
-//   id: getRandomIntInclusive(1, 25),
-//   description: 'природа',
-//   likes: getRandomIntInclusive(15, 200),
-//   url: `photos/${getRandomIntInclusive(1, 25)}`,
-// };
-
-// console.log(photo);
-
 function getRandomMessage() {
-  return message[getRandomIntInclusive(0, message.length - 1)];
+  return MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)];
 }
 
-function getComment(commentId) {
+function getComment() {
   return {
-    id: commentId,
+    id: totalCommentsCount++,
     avatar: `img/avatar${getRandomIntInclusive(1, 6)}.svg`,
     message: `${getRandomMessage()} ${getRandomMessage()}`,
-    name: names[getRandomIntInclusive(0, names.length - 1)],
+    name: NAMES[getRandomIntInclusive(0, NAMES.length - 1)]
   };
 }
 
-function getAllComments() {
+function generateComments() {
   const comments = [];
+  const commentsCount = getRandomIntInclusive(1, 5);
 
-  for (let i = 0; i < 25; i++) {
-    comments.push(getComment(i));
+  for (let i = 0; i < commentsCount; i++) {
+    comments.push(getComment());
   }
 
   return comments;
 }
 
-// console.log(names.length);
-console.log(getAllComments());
+function generatePhotoDescription(id) {
+  return {
+    id: id,
+    url: `photos/${id}.jpg`,
+    description: `Описание фото: ${id}`,
+    likes: getRandomIntInclusive(15, 200),
+    comments: generateComments(id)
+  };
+}
+
+function getPhotoDescriptions() {
+  const photos = [];
+
+  for (let i = 0; i < 25; i++) {
+    photos.push(generatePhotoDescription(i));
+  }
+
+  return photos;
+}
+
+getPhotoDescriptions();
 
 
