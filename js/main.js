@@ -67,7 +67,7 @@ function generatePhotoDescription(id) {
 function getPhotoDescriptions() {
   const photos = [];
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 1; i <= 25; i++) {
     photos.push(generatePhotoDescription(i));
   }
 
@@ -75,5 +75,3 @@ function getPhotoDescriptions() {
 }
 
 getPhotoDescriptions();
-
-
