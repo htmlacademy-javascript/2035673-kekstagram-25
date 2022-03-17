@@ -1,13 +1,6 @@
 import { MESSAGES, NAMES } from './consts.js';
+import { getRandomIntInclusive } from './util.js';
 
-function getRandomIntInclusive(min, max) {
-  if (min > max) {
-    throw new Error('ошибка!');
-  }
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-}
 function getRandomMessage() {
   return MESSAGES[getRandomIntInclusive(0, MESSAGES.length - 1)];
 }
@@ -54,4 +47,4 @@ function getPhotoDescriptions() {
   return photos;
 }
 
-export { getRandomMessage, getComment, generateComments, generatePhotoDescription, getPhotoDescriptions };
+export { getPhotoDescriptions };
