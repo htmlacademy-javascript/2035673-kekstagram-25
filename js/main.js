@@ -1,2 +1,2 @@
-import { getPhotoDescriptions } from './gen.js';
-getPhotoDescriptions();
+import { renderPhotos } from './render-photos.js';
+renderPhotos();
