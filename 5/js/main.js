@@ -1,2 +1,4 @@
 import { renderPhotos } from './render-photos.js';
-renderPhotos();
+import { photosData } from './gen.js';
+
+renderPhotos(photosData);

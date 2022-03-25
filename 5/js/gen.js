@@ -46,5 +46,6 @@ function getPhotoDescriptions() {
 
   return photos;
 }
+const photosData = getPhotoDescriptions();
 
-export { getPhotoDescriptions };
+export { photosData };
